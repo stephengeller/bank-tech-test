@@ -14,7 +14,7 @@ $ bundle install
 
 Within the repository directory:
 ```Ruby
-$ irb # or you can use Pry, like I have
+$ pry # or you can use irb
 [1] pry(main)> require_relative 'lib/statement'
 => true
 [2] pry(main)> require_relative 'lib/account'
