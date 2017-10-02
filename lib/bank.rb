@@ -44,7 +44,12 @@ class Bank
   def add_to_log(action, amount)
     date = Time.now.strftime('%d/%m/%Y')
     action = action
-    amount = amount
-    @log.push(date: date, action: action, amount: amount)
+    amount = amount.round(2).to_s
+    balance = @balance.round(2).to_s
+    @log.push(
+      date: date,
+      action: action,
+      amount: amount,
+      balance: balance)
   end
 end
