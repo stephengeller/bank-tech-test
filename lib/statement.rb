@@ -3,10 +3,14 @@ class Statement
     "date || credit || debit || balance\n"
   end
 
-  def print(bank_account)
+  def create(bank_account)
     statement_string = top_row
     statement_string += render_logs(bank_account.log)
     statement_string
+  end
+
+  def print(bank_account)
+    puts create(bank_account)
   end
 
   private
@@ -19,7 +23,7 @@ class Statement
       else
         str += "#{transaction[:date]} || #{transaction[:amount]} || || #{transaction[:balance]}"
       end
-      str += "\n" unless transaction == logs.last
+      str += "\n"
     end
     str
   end
