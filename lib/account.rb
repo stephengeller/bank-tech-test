@@ -1,4 +1,4 @@
-class Bank
+class Account
   STARTING_BALANCE = 0
 
   attr_reader :balance, :log
@@ -43,8 +43,8 @@ class Bank
 
   def add_to_log(action, amount)
     date = Time.now.strftime('%d/%m/%Y')
-    amount_2_decimals = "%.2f" % amount
-    balance_2_decimals = "%.2f" % @balance
+    amount_2_decimals = format('%.2f', amount)
+    balance_2_decimals = format('%.2f', @balance)
     @log.push(
       date: date,
       action: action,

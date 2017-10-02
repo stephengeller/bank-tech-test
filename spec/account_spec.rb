@@ -1,12 +1,12 @@
-require 'bank'
+require 'account'
 
-describe Bank do
+describe Account do
   it 'works' do
     expect(subject.class).to eq(described_class)
   end
 
   context '#deposit' do
-    it 'can deposit money into the bank' do
+    it 'can deposit money into the account' do
       subject.deposit 10
       expect(subject.balance).to eq 10
     end

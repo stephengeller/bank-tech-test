@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/stephengeller/Desktop/Projects/makers-academy/week-10/spec/bank_spec.rb": [
+      "/Users/stephengeller/Desktop/Projects/makers-academy/week-10/spec/account_spec.rb": [
         1,
         null,
         1,
@@ -95,7 +95,7 @@
         null,
         null
       ],
-      "/Users/stephengeller/Desktop/Projects/makers-academy/week-10/lib/bank.rb": [
+      "/Users/stephengeller/Desktop/Projects/makers-academy/week-10/lib/account.rb": [
         1,
         1,
         null,
@@ -140,7 +140,6 @@
         null,
         null,
         1,
-        16,
         16,
         16,
         16,
@@ -180,14 +179,12 @@
         null,
         1,
         1,
-        1,
         null,
         null,
         1,
         1,
         null,
         null,
-        1,
         1,
         1,
         null,
@@ -197,22 +194,20 @@
       "/Users/stephengeller/Desktop/Projects/makers-academy/week-10/lib/statement.rb": [
         1,
         1,
-        5,
-        null,
-        null,
-        1,
-        null,
-        3,
-        3,
-        3,
-        null,
-        null,
-        1,
-        null,
-        1,
-        3,
-        3,
         6,
+        null,
+        null,
+        1,
+        3,
+        3,
+        3,
+        null,
+        null,
+        1,
+        null,
+        1,
+        3,
+        3,
         6,
         3,
         null,
@@ -225,6 +220,6 @@
         null
       ]
     },
-    "timestamp": 1506953194
+    "timestamp": 1506954905
   }
 }
