@@ -6,9 +6,9 @@ class Statement
   end
 
   def print(bank_account)
-    # statement_string = ""
     statement_string = top_row
     statement_string += render_logs(bank_account.log)
+    puts statement_string
     return statement_string
   end
 
@@ -17,8 +17,7 @@ class Statement
   def render_logs(logs)
     str = ""
     logs.each do |transaction|
-      action = transaction[:action]
-      if action == :deposit
+      if transaction[:action] == :deposit
         str += "#{transaction[:date]} || || #{transaction[:amount]} || #{transaction[:balance]}"
       else
         str += "#{transaction[:date]} || #{transaction[:amount]} || || #{transaction[:balance]}"
