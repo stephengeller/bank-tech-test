@@ -1,6 +1,14 @@
 require 'account'
 
 describe Account do
+  let(:log) { double :log }
+  subject { Account.new(0, log) }
+
+  before do
+    first_log = "Log 1"
+    allow(log).to receive(:create).and_return(first_log)
+  end
+
   it 'works' do
     expect(subject.class).to eq(described_class)
   end
@@ -55,36 +63,37 @@ describe Account do
       end
     end
 
-    context '#log' do
+    context '#logs' do
       context 'at start' do
         it 'starts empty' do
-          expect(subject.log).to eq []
+          expect(subject.logs).to eq []
         end
       end
 
       context 'with funds' do
         before do
-          @date = Time.now.strftime('%d/%m/%Y')
-          subject.deposit 100
+          first_log = "Log 1"
+          allow(log).to receive(:create).and_return(first_log)
         end
 
-        it 'adds a deposit to it with date' do
+        it 'adds a deposit to it' do
           subject.deposit 10
-          expect(subject.log.last[:date]).to eq(@date)
+          expect(subject.logs.length).to eq 1
         end
 
-        it 'adds a withdraw to it with date' do
+        it 'adds a withdraw to it' do
+          subject.deposit 20
           subject.withdraw 10
-          expect(subject.log.last[:date]).to eq(@date)
+          expect(subject.logs.length).to eq 2
         end
       end
 
       context 'withdrawing without funds' do
         it 'does not add withdraw' do
           expect(subject.balance).to eq 0
-          expect(subject.log).to eq []
+          expect(subject.logs).to eq []
           expect { subject.withdraw 10 } .to raise_error('Insufficient funds')
-          expect(subject.log).to eq []
+          expect(subject.logs).to eq []
         end
       end
     end

@@ -18,11 +18,7 @@ class Statement
   def render_logs(logs)
     str = ''
     logs.each do |transaction|
-      if transaction[:action] == :deposit
-        str += "#{transaction[:date]} || || #{transaction[:amount]} || #{transaction[:balance]}"
-      else
-        str += "#{transaction[:date]} || #{transaction[:amount]} || || #{transaction[:balance]}"
-      end
+      str += transaction
       str += "\n"
     end
     str

@@ -2,12 +2,11 @@ require 'statement'
 
 describe Statement do
   let(:account) { double :account }
-  let(:first_log) { [{ date: '01/01/2001', action: :deposit, amount: '10.00', balance: '10.00' }] }
-  let(:second_log) { { date: '02/02/2002', action: :withdraw, amount: '5.00', balance: '5.00' } }
+  let(:first_log) { ['01/01/2001 || || 10.00 || 10.00'] }
+  let(:second_log) { first_log.push('02/02/2002 || 5.00 || || 5.00') }
 
   before do
-    both_logs = first_log.push(second_log)
-    allow(account).to receive(:log).and_return(both_logs)
+    allow(account).to receive(:log).and_return(second_log)
     @formatted_first_log = '01/01/2001 || || 10.00 || 10.00'
     @formatted_log_two = '02/02/2002 || 5.00 || || 5.00'
     @both_logs_formatted = "#{@formatted_first_log}\n#{@formatted_log_two}"
@@ -24,8 +23,7 @@ describe Statement do
 
   context '#create' do
 
-
-    it 'creates the top row' do
+    it 'has the column headers' do
       expect(subject.create(account)).to include subject.top_row
     end
 
@@ -40,7 +38,7 @@ describe Statement do
 
   context '#print' do
     it 'returns the statement to standard output' do
-    expect { subject.print(account) }.to output("#{@full_statement}").to_stdout
+      expect { subject.print(account) }.to output("#{@full_statement}").to_stdout
     end
   end
 end
