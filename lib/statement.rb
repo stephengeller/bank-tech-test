@@ -2,12 +2,12 @@ class Statement
 
 
   def top_row
-    'date || credit || debit || balance'
+    "date || credit || debit || balance\n"
   end
 
   def print(bank_account)
-    statement_string = ""
-    statement_string += top_row
+    # statement_string = ""
+    statement_string = top_row
     statement_string += render_logs(bank_account.log)
     return statement_string
   end
@@ -15,29 +15,16 @@ class Statement
   private
 
   def render_logs(logs)
-    string = ""
+    str = ""
     logs.each do |transaction|
-      date = transaction[:date]
       action = transaction[:action]
-      amount = transaction[:amount]
-      balance = transaction[:balance]
       if action == :deposit
-        string += "#{date} || || #{amount} || #{balance} "
+        str += "#{transaction[:date]} || || #{transaction[:amount]} || #{transaction[:balance]}"
       else
-        string += "#{date} || #{amount} || || #{balance}"
+        str += "#{transaction[:date]} || #{transaction[:amount]} || || #{transaction[:balance]}"
       end
-      # if transaction[:action] == :withdraw
-      #   string += render_withdraw(transaction)
-      # else
-      #   string += render_deposit(transaction)
-      # end
+      str += "\n" unless transaction == logs.last
     end
-    p string
-    return string
+    return str
   end
-
-  # loop over logs
-  # if deposit, call deposit print method and add to string
-  # else withdraw method
-  # return string
 end
