@@ -1,4 +1,4 @@
-require 'statement_line'
+require_relative './statement_line'
 
 class LogHolder
 

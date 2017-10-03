@@ -1,14 +1,14 @@
 class Statement
   TOP_ROW = "date || credit || debit || balance\n"
 
-  def print(bank_account)
-    puts create(bank_account)
+  def print(logs)
+    puts create(logs)
   end
 
   private
 
-  def create(bank_account)
-    TOP_ROW + render_logs(bank_account.logs)
+  def create(logs)
+    TOP_ROW + render_logs(logs)
   end
 
   def render_logs(logs)

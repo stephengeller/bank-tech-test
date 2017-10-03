@@ -1,7 +1,7 @@
 require 'log_holder'
 
 describe LogHolder do
-  let(:statement_line) { double :statement_line}
+  let(:statement_line) { double :statement_line }
   subject { LogHolder.new(statement_line) }
 
   it 'works' do

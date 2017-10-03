@@ -1,4 +1,4 @@
-require 'log_holder'
+require_relative 'log_holder'
 
 class UserInterface
 

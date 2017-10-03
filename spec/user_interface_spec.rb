@@ -3,8 +3,7 @@ require 'user_interface'
 describe UserInterface do
   let(:account) { double :account }
   let(:log_holder) { double :log_holder }
-  subject { UserInterface.new}
-
+  subject { UserInterface.new }
 
   before do
     allow(account).to receive(:deposit)
