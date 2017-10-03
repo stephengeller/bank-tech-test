@@ -45,3 +45,9 @@ date || credit || debit || balance
   - All tests passing
   - Coverage = 100%
   - 0 rubocop offenses
+
+## Classes
+
+  - Account: For deposits and withdrawals
+  - Log: Formats log entries to a string
+  - Statement: Creates the statement
