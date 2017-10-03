@@ -1,4 +1,4 @@
-class Log
+class StatementLine
 
   def create(action, amount, balance)
     if action == :deposit
