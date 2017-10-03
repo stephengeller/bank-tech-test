@@ -1,10 +1,15 @@
 require_relative '../lib/account'
 require_relative '../lib/statement_line'
 require_relative '../lib/statement'
+require_relative '../lib/log_holder'
+require_relative '../lib/user_interface'
+
 
 statement = Statement.new
 my_account = Account.new
 ui = UserInterface.new
-my_account.deposit 10
-my_account.withdraw 5
-statement.print(my_account)
+my_logs = LogHolder.new
+ui.deposit(my_account, 10)
+ui.deposit(my_account, 10)
+ui.withdraw(my_account, 10)
+statement.print(ui.logs)

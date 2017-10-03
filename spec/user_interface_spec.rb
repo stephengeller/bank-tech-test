@@ -3,7 +3,7 @@ require 'user_interface'
 describe UserInterface do
   let(:account) { double :account }
   let(:log_holder) { double :log_holder }
-  subject { UserInterface.new(log_holder)}
+  subject { UserInterface.new}
 
 
   before do
@@ -21,28 +21,28 @@ describe UserInterface do
 
     it 'adds log to log_holder' do
       expect(log_holder).to receive(:add_log)
-      subject.deposit(account, 10)
+      subject.deposit(account, 10, log_holder)
     end
   end
 
   describe '#withdraw' do
     before do
       allow(log_holder).to receive(:add_log)
-      subject.deposit(account, 20)
+      subject.deposit(account, 20, log_holder)
       allow(account).to receive(:balance).and_return 10
     end
 
     describe 'with funds' do
       it 'adds log to log_holder' do
         expect(log_holder).to receive(:add_log)
-        subject.withdraw(account, 10)
+        subject.withdraw(account, 10, log_holder)
       end
     end
 
     describe 'without funds' do
       it 'returns error' do
         allow(log_holder).to receive(:add_log)
-        expect { subject.withdraw(account, 30) } .to raise_error("Insufficient funds")
+        expect { subject.withdraw(account, 30, log_holder) } .to raise_error("Insufficient funds")
       end
     end
   end
