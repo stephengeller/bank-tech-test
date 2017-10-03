@@ -1,7 +1,5 @@
 class Statement
-  def top_row
-    "date || credit || debit || balance\n"
-  end
+  TOP_ROW = "date || credit || debit || balance\n"
 
   def print(bank_account)
     puts create(bank_account)
@@ -10,16 +8,10 @@ class Statement
   private
 
   def create(bank_account)
-    statement_string = top_row
-    statement_string + render_logs(bank_account.logs)
+    TOP_ROW + render_logs(bank_account.logs)
   end
 
   def render_logs(logs)
-    str = ''
-    logs.each do |transaction|
-      str += transaction
-      str += "\n"
-    end
-    str
+    logs.join("\n")
   end
 end

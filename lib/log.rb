@@ -1,13 +1,6 @@
 class Log
 
   def create(action, amount, balance)
-    formatted_amount = format_two_decimal(amount)
-    formatted_balance = format_two_decimal(balance)
-    format_log(action, formatted_amount, formatted_balance)
-  end
-  private
-
-  def format_log(action, amount, balance)
     if action == :deposit
       format_deposit(action, amount, balance)
     else
@@ -15,11 +8,13 @@ class Log
     end
   end
 
-  def format_deposit(_action, amount, balance)
+  private
+
+  def format_deposit(action, amount, balance)
     "#{current_date} || || #{format_two_decimal(amount)} || #{format_two_decimal(balance)}"
   end
 
-  def format_withdrawal(_action, amount, balance)
+  def format_withdrawal(action, amount, balance)
     "#{current_date} || #{format_two_decimal(amount)} || || #{format_two_decimal(balance)}"
   end
 
