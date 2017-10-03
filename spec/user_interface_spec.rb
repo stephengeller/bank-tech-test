@@ -1,6 +1,6 @@
-require 'transaction'
+require 'user_interface'
 
-describe Transaction do
+describe UserInterface do
   let(:account) { double :account }
 
   before do

@@ -223,7 +223,7 @@
         null,
         null
       ],
-      "/Users/stephengeller/Desktop/Projects/makers-academy/week-10/spec/transaction_spec.rb": [
+      "/Users/stephengeller/Desktop/Projects/makers-academy/week-10/spec/user_interface_spec.rb": [
         1,
         null,
         1,
@@ -240,7 +240,6 @@
         1,
         1,
         2,
-        null,
         null,
         null,
         null,
@@ -265,7 +264,7 @@
         null,
         null
       ],
-      "/Users/stephengeller/Desktop/Projects/makers-academy/week-10/lib/transaction.rb": [
+      "/Users/stephengeller/Desktop/Projects/makers-academy/week-10/lib/user_interface.rb": [
         1,
         null,
         1,
@@ -281,12 +280,11 @@
         null,
         1,
         2,
-        null,
         null,
         null,
         null
       ]
     },
-    "timestamp": 1507034321
+    "timestamp": 1507042303
   }
 }

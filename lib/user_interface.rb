@@ -1,4 +1,4 @@
-class Transaction
+class UserInterface
 
   def deposit(account, amount)
     account.deposit amount
