@@ -1,6 +1,6 @@
-require 'log'
+require 'statement_line'
 
-describe Log do
+describe StatementLine do
 
   def current_date
     return Time.now.strftime('%d/%m/%Y')

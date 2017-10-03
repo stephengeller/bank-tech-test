@@ -1,13 +1,13 @@
-require_relative './log'
+require_relative './statement_line'
 
 class Account
   STARTING_BALANCE = 0
 
   attr_reader :balance, :logs
 
-  def initialize(balance = STARTING_BALANCE, log = Log.new)
+  def initialize(balance = STARTING_BALANCE, log = StatementLine.new)
     @balance = balance
-    @log = log
+    @statement_line = log
     @logs = []
   end
 
@@ -24,7 +24,6 @@ class Account
   private
 
   def add_to_log(action, amount)
-    log = @log.create(action, amount, @balance)
-    @logs.push(log)
+    @logs.push(@statement_line.create(action, amount, @balance))
   end
 end
