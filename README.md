@@ -33,3 +33,15 @@ date || credit || debit || balance
 02/10/2017 || 5.00 || || 5.00
 => nil
 ```
+
+## Technology
+
+  - Language: Ruby
+  - Testing: RSpec
+  - Coverage: SimploCov
+
+## Testing
+
+  - All tests passing
+  - Coverage = 100%
+  - 0 rubocop offenses

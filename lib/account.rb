@@ -1,4 +1,4 @@
-require 'log'
+require_relative './log'
 
 class Account
   STARTING_BALANCE = 0

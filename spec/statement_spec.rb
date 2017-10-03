@@ -6,7 +6,7 @@ describe Statement do
   let(:second_log) { first_log.push('02/02/2002 || 5.00 || || 5.00') }
 
   before do
-    allow(account).to receive(:log).and_return(second_log)
+    allow(account).to receive(:logs).and_return(second_log)
     @formatted_first_log = '01/01/2001 || || 10.00 || 10.00'
     @formatted_log_two = '02/02/2002 || 5.00 || || 5.00'
     @both_logs_formatted = "#{@formatted_first_log}\n#{@formatted_log_two}"
@@ -19,21 +19,6 @@ describe Statement do
 
   it 'has fixed column labels' do
     expect(subject.top_row).to eq "date || credit || debit || balance\n"
-  end
-
-  context '#create' do
-
-    it 'has the column headers' do
-      expect(subject.create(account)).to include subject.top_row
-    end
-
-    it 'creates one logged transaction' do
-      expect(subject.create(account)).to include @formatted_first_log
-    end
-
-    it 'creates multiple transactions in order' do
-      expect(subject.create(account)).to eq "#{@full_statement}"
-    end
   end
 
   context '#print' do
