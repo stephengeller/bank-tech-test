@@ -10,11 +10,11 @@ class Log
 
   private
 
-  def format_deposit(action, amount, balance)
+  def format_deposit(_action, amount, balance)
     "#{current_date} || || #{format_two_decimal(amount)} || #{format_two_decimal(balance)}"
   end
 
-  def format_withdrawal(action, amount, balance)
+  def format_withdrawal(_action, amount, balance)
     "#{current_date} || #{format_two_decimal(amount)} || || #{format_two_decimal(balance)}"
   end
 
