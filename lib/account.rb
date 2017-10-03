@@ -5,7 +5,7 @@ class Account
 
   attr_reader :balance, :logs
 
-  def initialize(balance = STARTING_BALANCE, log = StatementLine.new)
+  def initialize(balance = STARTING_BALANCE, _log = StatementLine.new)
     @balance = balance
   end
 
