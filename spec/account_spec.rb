@@ -54,30 +54,4 @@ describe Account do
       expect(subject.balance).to eq 0
     end
   end
-
-  context '#logs' do
-    context 'at start' do
-      it 'starts empty' do
-        expect(subject.logs).to eq []
-      end
-    end
-
-    context 'with funds' do
-      before do
-        first_log = "Log 1"
-        allow(log).to receive(:create).and_return(first_log)
-      end
-
-      it 'adds a deposit to it' do
-        subject.deposit 10
-        expect(subject.logs.length).to eq 1
-      end
-
-      it 'adds a withdraw to it' do
-        subject.deposit 20
-        subject.withdraw 10
-        expect(subject.logs.length).to eq 2
-      end
-    end
-  end
 end
