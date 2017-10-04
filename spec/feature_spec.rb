@@ -8,7 +8,6 @@ describe 'feature' do
 
   it 'deposits, withdraws and prints a statement' do
 
-    ## TODO - INITIALIZE account within UI, have a class (dependency inject) of LogHolder within Account, so LogHolder calls the actions on it but still within account
     my_account = Account.new
     ui = UserInterface.new(my_account)
     statement = Statement.new
