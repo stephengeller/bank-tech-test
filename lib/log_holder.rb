@@ -10,7 +10,10 @@ class LogHolder
   end
 
   def add_log(action, amount, balance)
-    @logs.push(@statement_line.create(action, amount, balance))
+    p "#{amount} is amount"
+    p "#{balance} is balance"
+    log = @statement_line.create(action, amount, balance)
+    @logs.push(log)
   end
 
 end

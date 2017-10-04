@@ -11,6 +11,7 @@ describe LogHolder do
   it 'stores a log' do
     expect(statement_line).to receive(:create).and_return('log')
     subject.add_log(:deposit, 10, 10)
-    expect(subject.logs).to eq ['log']
+    expect(subject.logs).to eq(['log'])
   end
+
 end

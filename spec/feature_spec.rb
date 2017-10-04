@@ -7,15 +7,15 @@ require_relative '../lib/user_interface'
 describe 'feature' do
 
   it 'deposits, withdraws and prints a statement' do
-    statement = Statement.new
+
+    ## TODO - INITIALIZE account within UI, have a class (dependency inject) of LogHolder within Account, so LogHolder calls the actions on it but still within account
     my_account = Account.new
-    ui = UserInterface.new
-    my_logs = LogHolder.new
+    ui = UserInterface.new(my_account)
     today = Time.now.strftime('%d/%m/%Y')
-    ui.deposit(my_account, 10, my_logs)
-    ui.deposit(my_account, 10, my_logs)
-    ui.withdraw(my_account, 5, my_logs)
-    expect { statement.print(my_logs.logs) }.to output(
+    ui.deposit(10)
+    ui.deposit(10)
+    ui.withdraw(5)
+    expect { ui.print_statement }.to output(
     "date || credit || debit || balance\n" +
     "#{today} || || 10.00 || 10.00\n" +
     "#{today} || || 10.00 || 20.00\n" +
