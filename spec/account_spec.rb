@@ -1,12 +1,12 @@
 require 'account'
 
 describe Account do
-  let(:log) { double :log }
-  subject { Account.new(0, log) }
+  let(:log_holder) { double :log_holder }
+  subject { Account.new(0, log_holder) }
 
   before do
     first_log = "Log 1"
-    allow(log).to receive(:create).and_return(first_log)
+    allow(log_holder).to receive(:add_log).and_return(first_log)
   end
 
   it 'works' do
@@ -56,27 +56,24 @@ describe Account do
   end
 
   context '#logs' do
-    context 'at start' do
-      it 'starts empty' do
-        expect(subject.logs).to eq []
-      end
-    end
-
     context 'with funds' do
       before do
         first_log = "Log 1"
-        allow(log).to receive(:create).and_return(first_log)
+        allow(log_holder).to receive(:add_log).and_return(first_log)
       end
 
       it 'adds a deposit to it' do
+        expect(log_holder).to receive(:add_log).with(:deposit, 10, 10)
         subject.deposit 10
-        expect(subject.logs.length).to eq 1
       end
 
       it 'adds a withdraw to it' do
+        expect(log_holder).to receive(:add_log).with(:deposit, 10, 10)
+        subject.deposit 10
+        expect(log_holder).to receive(:add_log).with(:deposit, 20, 30)
         subject.deposit 20
+        expect(log_holder).to receive(:add_log).with(:withdraw, 10, 20)
         subject.withdraw 10
-        expect(subject.logs.length).to eq 2
       end
     end
   end

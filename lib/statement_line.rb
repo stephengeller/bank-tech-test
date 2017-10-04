@@ -19,7 +19,7 @@ class StatementLine
   end
 
   def format_two_decimal(number)
-    format('%.2f', number)
+    '%.2f' % number
   end
 
   def current_date
