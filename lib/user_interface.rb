@@ -12,10 +12,6 @@ class UserInterface
     puts "£#{amount} successfully deposited"
   end
 
-  def print_statement
-    @statement.print(@account.log_holder.logs)
-  end
-
   def withdraw(amount)
     raise 'Insufficient funds' if insufficient_funds?(amount)
     @account.withdraw amount

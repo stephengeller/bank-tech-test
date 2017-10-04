@@ -11,15 +11,16 @@ describe 'feature' do
     ## TODO - INITIALIZE account within UI, have a class (dependency inject) of LogHolder within Account, so LogHolder calls the actions on it but still within account
     my_account = Account.new
     ui = UserInterface.new(my_account)
+    statement = Statement.new
     today = Time.now.strftime('%d/%m/%Y')
     ui.deposit(10)
     ui.deposit(10)
     ui.withdraw(5)
-    expect { ui.print_statement }.to output(
-    "date || credit || debit || balance\n" +
-    "#{today} || || 10.00 || 10.00\n" +
-    "#{today} || || 10.00 || 20.00\n" +
-    "#{today} || 5.00 || || 15.00\n"
+    expect { statement.print(my_account.log_holder.logs) }.to output(
+      "date || credit || debit || balance\n" +
+      "#{today} || || 10.00 || 10.00\n" +
+      "#{today} || || 10.00 || 20.00\n" +
+      "#{today} || 5.00 || || 15.00\n"
     ).to_stdout
   end
 end
